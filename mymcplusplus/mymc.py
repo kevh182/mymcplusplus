@@ -251,7 +251,7 @@ def do_export(cmd, mc, opts, args, opterr):
         if opts.longnames:
             filename = (ps2save.make_longname(dirname, sf) + "." + opts.type)
         if filename == None:
-            filename = dirname + "." + opts.type
+            filename = (ps2save.make_longname(dirname, sf) + "." + opts.type)
                 
         if not opts.overwrite_existing:
             exists = True
@@ -266,7 +266,7 @@ def do_export(cmd, mc, opts, args, opterr):
             
         f = open(filename, "wb")
         try:
-            print("Exporing", dirname, "to", filename)
+            print("Exporting", dirname, "to", filename)
             
             if opts.type == "max":
                 format_max_drive.save(sf, f)
